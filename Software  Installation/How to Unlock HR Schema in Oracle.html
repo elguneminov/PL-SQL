@@ -1,0 +1,241 @@
+<p>Hi, My Dear Friends.</p>
+
+<p>Maybe the most encountered problem when you try to first installation of Oracle Database is about  <strong><u>connecting with HR Schema</u></strong>.<br></p>
+
+
+
+
+
+
+
+
+
+<p>With Oracle Database 12c, there is a container database property and 
+when you install oracle without unchecking it, you face with HR User 
+problems.</p>
+
+
+
+
+
+
+
+<p>If you read this text&nbsp;<strong>before you installed the database</strong>, you need to&nbsp;<strong>uncheck "Create as Container Database" option</strong>&nbsp;to avoid that.</p>
+
+
+
+
+
+
+
+
+
+<p>But anyway, if you have installed the database without unchecking this option, there are two ways to connect with HR user.</p>
+
+
+
+
+
+
+
+
+
+<p><strong>1-)</strong>&nbsp;You must follow these instructions below:</p>
+
+
+
+
+
+
+
+
+
+<p>Run command prompt (IN WINDOWS) or terminal (IN LINUX) and type:</p>
+
+
+
+
+
+
+
+
+
+<p>&nbsp;<strong><em><code>sqlplus / as sysdba</code>&nbsp;</em></strong></p>
+
+
+
+
+
+
+
+
+
+<p>(If you can not connect with this code, your database may not work. So go to the services and make&nbsp;<strong>OracleServiceORA12C&nbsp;</strong>running)</p>
+
+
+
+
+
+
+
+
+
+<p>After that : Run this code.</p>
+
+
+
+
+
+
+
+
+
+<p><strong><em><code>alter user hr identified by hr account unlock;</code>&nbsp;</em></strong></p>
+
+
+
+
+
+
+
+
+
+<p>And try to connect to database with SQLdeveloper and HR user.</p>
+
+
+
+
+
+
+
+
+
+<p><strong>2-)</strong>&nbsp;&nbsp;Even if the user exists in the software, it can
+ be thought as it is not in your Database. I recommend you not to think 
+about this. This is a bit advanced subject. So you can create it and use
+ it with your database.</p>
+
+
+
+
+
+
+
+
+
+<p>So, connect with the&nbsp;<strong><em>system user</em></strong>&nbsp;as I mentioned in the videos and then run the codes below with the given order.</p>
+
+
+
+
+
+
+
+
+
+<p><code>create user hr identified by hr;</code>&nbsp;</p>
+
+
+
+
+
+
+
+
+
+<p>The user is created. Now you need to grant its permissions</p>
+
+
+
+
+
+
+
+
+
+<p><code>GRANT CREATE SESSION, ALTER SESSION, CREATE DATABASE LINK, 
+CREATE MATERIALIZED VIEW, CREATE PROCEDURE, CREATE PUBLIC SYNONYM, 
+CREATE TABLE, CREATE VIEW, UNLIMITED TABLESPACE TO HR.</code></p>
+
+
+
+
+
+
+
+
+
+<p>Once those have been granted, then you can connect the database as shown in the 9th lesson (Oracle SQL Developer Basics).</p>
+
+
+
+
+
+
+
+
+
+<p>In this time, you do not have the tables or the other data that will be used in the next lessons.</p>
+
+
+
+
+
+
+
+
+
+<p>There is a pdf file titled "HR Schema Create Codes 
+(Creating-Scripts.pdf)" which has the script for the HR user. You need 
+to connect with HR user, copy these codes into a new sql worksheet. 
+Select all the codes and run&nbsp;<strong>for once</strong>.</p>
+
+
+
+
+
+
+
+
+
+<p>Now, you are ready for the course.</p>
+
+
+
+
+
+
+
+
+
+<p>However, if you can not succeed anyway, you need to uninstall the database and re-install it with&nbsp;<strong>unchecking "Create as Container Database" option.</strong></p>
+
+
+
+
+
+
+
+
+
+<p>If you ever have any other problems, you can ask me anytime.</p>
+
+
+
+
+
+
+
+
+
+<p>Best Regards,</p>
+
+
+
+
+
+
+
+
+
+<p>Omer..</p>
